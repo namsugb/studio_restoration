@@ -32,8 +32,6 @@ const FRAME_OPTIONS: FrameOption[] = [
   { id: "frame-premium", name: "고급액자", description: "고급 프레임, +30,000원", price: 30000 },
 ];
 
-const KAKAO_CHANNEL_URL = "https://pf.kakao.com"; // 카카오채널 링크를 실제 주소로 바꿔주세요
-
 export default function Home() {
   const [selectedIds, setSelectedIds] = useState<string[]>([]);
   const [selectedFrameId, setSelectedFrameId] = useState<string>("frame-basic");
@@ -90,13 +88,13 @@ export default function Home() {
   }
 
   return (
-    <div className="min-h-screen w-full mx-auto px-6 py-10 bg-white  text-black">
+    <div className="min-h-screen max-w-4xl mx-auto px-6 py-10 bg-white  text-black">
       <header className="flex justify-center items-center mb-8">
         <Image src="/logo.png" alt="logo" width={200} height={200} className="w-20 h-auto" />
         <h1 className="text-2xl font-bold">아침햇살 스튜디오</h1>
       </header>
 
-      <section className="grid md:grid-cols-2 gap-10 mb-10">
+      <div className="flex flex-col gap-10">
         <div>
           <Image src="/restoration.png" alt="sample" width={260} height={120} className="mb-4 w-full h-auto" />
           <p className="text-sm leading-6">
@@ -184,9 +182,9 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </section>
+      </div>
 
-      <section className="rounded-lg border border-black p-4">
+      <section className="rounded-lg border border-black p-4 mt-8">
         <h2 className="font-semibold mb-3">작업 신청서</h2>
         <form onSubmit={handleSubmit} className="grid md:grid-cols-2 gap-4">
           <div className="flex flex-col gap-1">
@@ -213,6 +211,8 @@ export default function Home() {
           </div>
         </form>
       </section>
+
+      {/* 신청서 섹션은 상단 왼쪽 컬럼으로 이동했습니다 */}
       {isSubmitModalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center">
           <div className="absolute inset-0 bg-black/50" onClick={() => setIsSubmitModalOpen(false)} />
