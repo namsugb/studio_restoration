@@ -3,7 +3,7 @@
 import { Oleo_Script } from "next/font/google";
 import Image from "next/image";
 import { useMemo, useState } from "react";
-import { submitAlimtalkToStudio } from "../../utils/kakao";
+import { submitAlimtalkToStudio } from "../utils/kakao";
 
 type Product = {
   id: string;
