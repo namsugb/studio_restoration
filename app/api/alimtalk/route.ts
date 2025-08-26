@@ -16,9 +16,8 @@ export async function POST(request: NextRequest) {
             );
         }
 
-        const { name, phone, email, notes, selectedProducts, selectedFrame, framePrice, total } = body;
+        const { name, phone, email, notes, selectedProducts, selectedFrame, total } = body;
 
-        const phoneNumber = phone.replace(/-/g, '');
         const studio = "아침햇살 스튜디오";
 
         const requestBody = {
@@ -37,7 +36,6 @@ export async function POST(request: NextRequest) {
         };
 
         console.log("API 요청 데이터:", JSON.stringify(requestBody, null, 2));
-
 
         const response = await fetch("https://jupiter.lunasoft.co.kr/api/AlimTalk/message/send", {
             method: "POST",
@@ -63,10 +61,11 @@ export async function POST(request: NextRequest) {
         }
 
         return NextResponse.json({ success: true, data: result });
-    } catch (error: any) {
+    } catch (error: unknown) {
         console.error("알림톡 전송 중 오류:", error);
+        const errorMessage = error instanceof Error ? error.message : "알 수 없는 오류가 발생했습니다.";
         return NextResponse.json(
-            { success: false, error: error.message },
+            { success: false, error: errorMessage },
             { status: 500 }
         );
     }
