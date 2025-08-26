@@ -80,8 +80,8 @@ export default function Home() {
       total,
     };
 
-    // TODO: 알림톡 전송 활성화 시 사용
-    // submitAlimtalkToStudio(payload);
+
+    submitAlimtalkToStudio(payload);
 
 
     setIsSubmitModalOpen(true);
