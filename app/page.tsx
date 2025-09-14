@@ -88,158 +88,368 @@ export default function Home() {
   }
 
   return (
-    <div className="min-h-screen max-w-4xl mx-auto px-6 py-10 bg-white  text-black">
-      <header className="flex justify-center items-center mb-8">
-        <Image src="/logo.png" alt="logo" width={200} height={200} className="w-20 h-auto" />
-        <h1 className="text-2xl font-bold">아침햇살 스튜디오</h1>
-      </header>
-
-      <div className="flex flex-col gap-10">
-        <div>
-          <Image src="/restoration.png" alt="sample" width={260} height={120} className="mb-4 w-full h-auto" />
-          <p className="text-sm leading-6">
-            소중한 사진을 최신 디지털 기술로 정성껏 복원합니다. 고해상도 스캔부터
-            전문 복원 작업, 화질 개선, 고품질 인화까지 한 번에 진행합니다. 배경/의상
-            교체도 가능합니다.
-          </p>
-          <div className="mt-4">
-            <h3 className="text-sm font-semibold mb-2">Before / After 예시</h3>
-            <div className="grid grid-cols-2 gap-4">
-              <figure className="border border-black/20 rounded-md p-2 text-center">
-                <div className="text-xs mb-2 opacity-70">Before</div>
-                <Image src="/before.jpg" alt="before" width={300} height={380} className="w-full h-auto object-cover rounded" />
-              </figure>
-              <figure className="border border-black/20 rounded-md p-2 text-center">
-                <div className="text-xs mb-2 opacity-70">After</div>
-                <Image src="/after.jpg" alt="after" width={300} height={380} className="w-full h-auto object-cover rounded" />
-              </figure>
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-700">
+      <div className="max-w-6xl mx-auto px-6 py-12">
+        <header className="text-center mb-16">
+          <div className="flex flex-col items-center gap-4 mb-6">
+            <div className="relative">
+              <Image
+                src="/logo.png"
+                alt="logo"
+                width={150}
+                height={150}
+                className="w-16 h-16 md:w-20 md:h-20 rounded-full shadow-lg border-4 border-white"
+              />
             </div>
-            <p className="text-xs opacity-70 mt-2">이미지는 예시입니다. 결과는 원본 상태에 따라 달라질 수 있습니다.</p>
+            <h1 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-white to-slate-200 bg-clip-text text-transparent">
+              아침햇살 스튜디오
+            </h1>
+            <p className="text-base md:text-lg text-slate-300 max-w-2xl mx-auto px-4">
+              고객님의 소중한 추억을 정성껏 복원합니다.
+            </p>
           </div>
-          <ul className="text-sm leading-6 list-disc pl-5 mt-3">
-            <li>고해상도 스캔</li>
-            <li>전문 복원 작업: 찢김, 얼룩, 변색 등 세밀 복원</li>
-            <li>화질 개선: 선명도와 대비 조정</li>
-            <li>고품질 인화 및 액자 제공</li>
-          </ul>
-        </div>
+        </header>
 
-        <div className="space-y-6">
-          <div className="rounded-lg border border-black p-4">
-            <h2 className="font-semibold mb-3">상품 선택</h2>
-            <div className="space-y-3">
+        <div className="flex flex-col gap-8">
+
+          {/* 메인 타이틀 섹션 */}
+          <div className="bg-slate-800/90 backdrop-blur-sm rounded-3xl p-6 md:p-8 shadow-xl border border-slate-600/30">
+            <div className="text-center space-y-6">
+              <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-white via-blue-200 to-indigo-200 bg-clip-text text-transparent leading-tight">
+                소중한 사진을 최신 디지털 기술로<br className="hidden md:block" />
+                <span className="md:hidden"> </span>정성껏 복원합니다
+              </h1>
+              <div className="space-y-3 text-base md:text-lg text-slate-300 px-4">
+                <p>고해상도 스캔부터 전문 복원 작업, 화질 개선, 고품질 인화까지 한 번에 진행합니다.</p>
+                <p className="font-medium text-blue-300">배경/의상 교체도 가능합니다.</p>
+              </div>
+              <div className="relative mt-6 md:mt-8">
+                <Image
+                  src="/restoration.png"
+                  alt="복원 작업 예시"
+                  width={400}
+                  height={200}
+                  className="w-full max-w-2xl mx-auto h-auto rounded-2xl shadow-lg border border-white/50"
+                />
+                <div className="absolute -inset-2 bg-gradient-to-r from-blue-400/20 to-purple-400/20 rounded-2xl -z-10 blur-xl"></div>
+              </div>
+            </div>
+          </div>
+
+          {/* Before / After 예시 */}
+          <div className="bg-slate-800/90 backdrop-blur-sm rounded-3xl p-6 md:p-8 shadow-xl border border-slate-600/30">
+            <div className="text-center mb-6 md:mb-8">
+              <h3 className="text-xl md:text-2xl font-bold text-white mb-2">Before / After 예시</h3>
+              <p className="text-slate-300 text-sm md:text-base">실제 복원 작업 결과를 확인해보세요</p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 mb-6 md:mb-8">
+              <div className="flex flex-col items-center gap-3 md:gap-4">
+                <div className="bg-red-500 text-white px-3 md:px-4 py-1 md:py-2 rounded-full text-xs md:text-sm font-medium">
+                  Before
+                </div>
+                <figure className="group relative overflow-hidden rounded-2xl shadow-lg border border-white/50 w-full">
+                  <Image
+                    src="/before.jpg"
+                    alt="복원 전 사진"
+                    width={400}
+                    height={600}
+                    className="w-full h-auto md:h-auto object-contain group-hover:scale-105 transition-transform duration-300"
+                  />
+                </figure>
+              </div>
+
+              <div className="flex flex-col items-center gap-3 md:gap-4">
+                <div className="bg-green-500 text-white px-3 md:px-4 py-1 md:py-2 rounded-full text-xs md:text-sm font-medium">
+                  After
+                </div>
+                <figure className="group relative overflow-hidden rounded-2xl shadow-lg border border-white/50 w-full">
+                  <Image
+                    src="/after.jpg"
+                    alt="복원 후 사진"
+                    width={400}
+                    height={600}
+                    className="w-full h-auto md:h-auto object-contain group-hover:scale-105 transition-transform duration-300"
+                  />
+                </figure>
+              </div>
+            </div>
+
+            <div className="text-center mb-6">
+              <p className="text-sm text-slate-400 italic">이미지는 예시입니다. 결과는 원본 상태에 따라 달라질 수 있습니다.</p>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+              <div className="text-center p-4 bg-gradient-to-br from-slate-700 to-slate-600 rounded-xl border border-slate-500">
+                <div className="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-3">
+                  <span className="text-white font-bold">📷</span>
+                </div>
+                <h4 className="font-semibold text-white mb-1">고해상도 스캔</h4>
+                <p className="text-sm text-slate-300">최고 품질로 디지털화</p>
+              </div>
+              <div className="text-center p-4 bg-gradient-to-br from-slate-700 to-slate-600 rounded-xl border border-slate-500">
+                <div className="w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center mx-auto mb-3">
+                  <span className="text-white font-bold">🔧</span>
+                </div>
+                <h4 className="font-semibold text-white mb-1">전문 복원 작업</h4>
+                <p className="text-sm text-slate-300">찢김, 얼룩, 변색 등 세밀 복원</p>
+              </div>
+              <div className="text-center p-4 bg-gradient-to-br from-slate-700 to-slate-600 rounded-xl border border-slate-500">
+                <div className="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-3">
+                  <span className="text-white font-bold">✨</span>
+                </div>
+                <h4 className="font-semibold text-white mb-1">화질 개선</h4>
+                <p className="text-sm text-slate-300">선명도와 대비 조정</p>
+              </div>
+              <div className="text-center p-4 bg-gradient-to-br from-slate-700 to-slate-600 rounded-xl border border-slate-500">
+                <div className="w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center mx-auto mb-3">
+                  <span className="text-white font-bold">🖼️</span>
+                </div>
+                <h4 className="font-semibold text-white mb-1">고품질 인화</h4>
+                <p className="text-sm text-slate-300">액자와 함께 제공</p>
+              </div>
+            </div>
+          </div>
+
+          {/* 상품 선택 */}
+          <div className="bg-slate-800/90 backdrop-blur-sm rounded-3xl p-6 md:p-8 shadow-xl border border-slate-600/30">
+            <div className="text-center mb-6 md:mb-8">
+              <h2 className="text-xl md:text-2xl font-bold text-white mb-2">상품 선택</h2>
+              <p className="text-slate-300 text-sm md:text-base">원하시는 서비스를 선택해주세요</p>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {PRODUCTS.map((p) => {
                 const checked = selectedIds.includes(p.id);
                 return (
-                  <label key={p.id} className="flex items-start gap-3 p-3 rounded-md border border-black cursor-pointer">
+                  <label
+                    key={p.id}
+                    className={`group relative flex items-start gap-4 p-6 rounded-2xl border-2 cursor-pointer transition-all duration-300 hover:shadow-lg ${checked
+                      ? 'border-blue-500 bg-slate-700 shadow-lg'
+                      : 'border-slate-600 bg-slate-800 hover:border-blue-400'
+                      }`}
+                  >
+                    <div className="flex-shrink-0 mt-1">
+                      <div className={`w-6 h-6 rounded-full border-2 flex items-center justify-center transition-all duration-200 ${checked
+                        ? 'border-blue-500 bg-blue-500'
+                        : 'border-slate-400 group-hover:border-blue-400'
+                        }`}>
+                        {checked && (
+                          <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+                            <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                          </svg>
+                        )}
+                      </div>
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-start justify-between">
+                        <div>
+                          <h3 className={`font-semibold text-lg mb-1 ${checked ? 'text-blue-200' : 'text-white'}`}>
+                            {p.name}
+                          </h3>
+                          <p className={`text-sm ${checked ? 'text-blue-300' : 'text-slate-300'}`}>
+                            {p.description}
+                          </p>
+                        </div>
+                        <div className={`text-right ${checked ? 'text-blue-300' : 'text-slate-300'}`}>
+                          <span className="text-lg font-bold">
+                            {p.price.toLocaleString()}원
+                          </span>
+                        </div>
+                      </div>
+                    </div>
                     <input
                       type="checkbox"
-                      className="mt-1"
+                      className="sr-only"
                       checked={checked}
                       onChange={() => toggleProduct(p.id)}
                     />
-                    <span>
-                      <span className="font-medium">{p.name}</span>
-                      <span className="block text-xs opacity-80">{p.description}</span>
-                    </span>
-                    <span className="ml-auto text-sm font-semibold">
-                      {p.price.toLocaleString()}원
-                    </span>
                   </label>
                 );
               })}
             </div>
           </div>
 
-          <div className="rounded-lg border border-black p-4">
-            <h2 className="font-semibold mb-1">액자 선택</h2>
-            <div className="text-xs opacity-80 mb-3">
-
-              <div>(기일용 20×25cm · 장례식용 28×35cm · 납골당용 9×13cm)</div>
-
+          {/* 액자 선택 */}
+          <div className="bg-slate-800/90 backdrop-blur-sm rounded-3xl p-6 md:p-8 shadow-xl border border-slate-600/30">
+            <div className="text-center mb-6 md:mb-8">
+              <h2 className="text-xl md:text-2xl font-bold text-white mb-2">액자 선택</h2>
+              <p className="text-slate-300 text-sm md:text-base">(기일용 20×25cm · 장례식용 28×35cm · 납골당용 9×13cm)</p>
             </div>
-            <div className="space-y-3">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
               {FRAME_OPTIONS.map((f) => (
-                <label key={f.id} className="flex items-start gap-3 p-3 rounded-md border border-black cursor-pointer">
+                <label
+                  key={f.id}
+                  className={`group relative flex items-start gap-4 p-6 rounded-2xl border-2 cursor-pointer transition-all duration-300 hover:shadow-lg ${selectedFrameId === f.id
+                    ? 'border-blue-500 bg-slate-700 shadow-lg'
+                    : 'border-slate-600 bg-slate-800 hover:border-blue-400'
+                    }`}
+                >
+                  <div className="flex-shrink-0 mt-1">
+                    <div className={`w-6 h-6 rounded-full border-2 flex items-center justify-center transition-all duration-200 ${selectedFrameId === f.id
+                      ? 'border-blue-500 bg-blue-500'
+                      : 'border-slate-400 group-hover:border-blue-400'
+                      }`}>
+                      {selectedFrameId === f.id && (
+                        <div className="w-2 h-2 bg-white rounded-full"></div>
+                      )}
+                    </div>
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-start justify-between">
+                      <div>
+                        <h3 className={`font-semibold text-lg mb-1 ${selectedFrameId === f.id ? 'text-blue-200' : 'text-white'}`}>
+                          {f.name}
+                        </h3>
+                        <p className={`text-sm ${selectedFrameId === f.id ? 'text-blue-300' : 'text-slate-300'}`}>
+                          {f.description}
+                        </p>
+                      </div>
+                      <div className={`text-right ${selectedFrameId === f.id ? 'text-blue-300' : 'text-slate-300'}`}>
+                        <span className="text-lg font-bold">
+                          {f.price === 0 ? "포함" : `+${f.price.toLocaleString()}원`}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
                   <input
                     type="radio"
                     name="frame"
-                    className="mt-1"
+                    className="sr-only"
                     checked={selectedFrameId === f.id}
                     onChange={() => setSelectedFrameId(f.id)}
                   />
-                  <span>
-                    <span className="font-medium">{f.name}</span>
-                    <span className="block text-xs opacity-80">{f.description}</span>
-                  </span>
-                  <span className="ml-auto text-sm font-semibold">{f.price === 0 ? "포함" : `+${f.price.toLocaleString()}원`}</span>
                 </label>
               ))}
             </div>
-            <div className="flex items-center justify-between mt-4 pt-3 border-t border-black">
-              <span className="text-sm">총 합계</span>
-              <strong className="text-lg">{total.toLocaleString()}원</strong>
+            <div className="bg-gradient-to-r from-slate-700 to-slate-600 rounded-2xl p-6 border border-slate-500">
+              <div className="flex items-center justify-between">
+                <span className="text-lg font-semibold text-white">총 합계</span>
+                <div className="text-right">
+                  <span className="text-3xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+                    {total.toLocaleString()}원
+                  </span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
+
+        <section className="bg-slate-800/90 backdrop-blur-sm rounded-3xl p-6 md:p-8 my-8 shadow-xl border border-slate-600/30">
+          <div className="text-center mb-6 md:mb-8">
+            <h2 className="text-xl md:text-2xl font-bold text-white mb-2">작업 신청서</h2>
+            <p className="text-slate-300 text-sm md:text-base">신청 정보를 입력해주세요</p>
+          </div>
+
+          <form onSubmit={handleSubmit} className="space-y-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="space-y-2">
+                <label htmlFor="name" className="block text-sm font-semibold text-slate-300">
+                  성함 <span className="text-red-400">*</span>
+                </label>
+                <input
+                  id="name"
+                  name="name"
+                  required
+                  className="w-full h-12 px-4 rounded-xl border-2 border-slate-600 bg-slate-700/50 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/20 transition-all duration-200 text-white placeholder-slate-400"
+                  placeholder="홍길동"
+                />
+              </div>
+              <div className="space-y-2">
+                <label htmlFor="phone" className="block text-sm font-semibold text-slate-300">
+                  연락처 <span className="text-red-400">*</span>
+                </label>
+                <input
+                  id="phone"
+                  name="phone"
+                  required
+                  className="w-full h-12 px-4 rounded-xl border-2 border-slate-600 bg-slate-700/50 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/20 transition-all duration-200 text-white placeholder-slate-400"
+                  placeholder="010-0000-0000"
+                />
+              </div>
+            </div>
+
+            <div className="space-y-2">
+              <label htmlFor="email" className="block text-sm font-semibold text-slate-300">
+                이메일
+              </label>
+              <input
+                id="email"
+                name="email"
+                type="email"
+                className="w-full h-12 px-4 rounded-xl border-2 border-slate-600 bg-slate-700/50 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/20 transition-all duration-200 text-white placeholder-slate-400"
+                placeholder="example@email.com"
+              />
+            </div>
+
+            <div className="space-y-2">
+              <label htmlFor="notes" className="block text-sm font-semibold text-slate-300">
+                요청 사항
+              </label>
+              <textarea
+                id="notes"
+                name="notes"
+                rows={4}
+                className="w-full p-4 rounded-xl border-2 border-slate-600 bg-slate-700/50 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/20 transition-all duration-200 text-white placeholder-slate-400 resize-none"
+                placeholder="예) 배경 교체, 의상 정장 변경 등"
+              />
+            </div>
+
+            <div className="bg-gradient-to-r from-slate-700 to-slate-600 rounded-2xl p-6 border border-slate-500">
+              <div className="text-center space-y-2">
+                <div className="text-sm text-slate-300">
+                  선택 상품 <span className="font-semibold text-blue-300">{selectedIds.length}개</span> ·
+                  액자: <span className="font-semibold text-blue-300">{FRAME_OPTIONS.find(f => f.id === selectedFrameId)?.name}</span> ·
+                  합계 <span className="font-bold text-blue-300 text-lg">{total.toLocaleString()}원</span>
+                </div>
+                <button
+                  type="submit"
+                  className="group relative inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-white bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-blue-500/20"
+                >
+                  <span className="relative z-10">신청하기</span>
+                  <div className="absolute inset-0 bg-gradient-to-r from-blue-700 to-purple-700 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </button>
+              </div>
+            </div>
+          </form>
+        </section>
+
+        {/* 신청 완료 모달 */}
+        {isSubmitModalOpen && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+            <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={() => setIsSubmitModalOpen(false)} />
+            <div className="relative z-10 w-full max-w-md bg-slate-800/95 backdrop-blur-sm rounded-3xl p-8 shadow-2xl border border-slate-600/30 animate-in fade-in-0 zoom-in-95 duration-300">
+              <div className="text-center">
+                <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <svg className="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                </div>
+                <h3 className="text-2xl font-bold text-white mb-3">신청이 완료되었습니다</h3>
+                <p className="text-slate-300 leading-relaxed mb-6">
+                  아침햇살 카카오채널에 복원하시려는 사진을 보내면 작업이 진행됩니다.
+                </p>
+                <div className="space-y-3">
+                  <a
+                    href="https://pf.kakao.com/_SLhjK"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group inline-flex items-center justify-center w-full px-6 py-3 text-white bg-gradient-to-r from-yellow-400 to-orange-500 rounded-xl font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
+                  >
+                    <span className="mr-2">💬</span>
+                    카카오채널 바로가기
+                  </a>
+                  <button
+                    className="w-full px-6 py-3 text-slate-300 bg-slate-700 hover:bg-slate-600 rounded-xl font-semibold transition-colors duration-200"
+                    onClick={() => setIsSubmitModalOpen(false)}
+                  >
+                    닫기
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
-
-      <section className="rounded-lg border border-black p-4 mt-8">
-        <h2 className="font-semibold mb-3">작업 신청서</h2>
-        <form onSubmit={handleSubmit} className="grid md:grid-cols-2 gap-4">
-          <div className="flex flex-col gap-1">
-            <label htmlFor="name" className="text-sm">성함</label>
-            <input id="name" name="name" required className="h-10 px-3 rounded border border-black bg-transparent" />
-          </div>
-          <div className="flex flex-col gap-1">
-            <label htmlFor="phone" className="text-sm">연락처</label>
-            <input id="phone" name="phone" required className="h-10 px-3 rounded border border-black/15 bg-transparent" placeholder="010-0000-0000" />
-          </div>
-          <div className="flex flex-col gap-1 md:col-span-2">
-            <label htmlFor="email" className="text-sm">이메일</label>
-            <input id="email" name="email" type="email" className="h-10 px-3 rounded border border-black/15 bg-transparent" placeholder="example@email.com" />
-          </div>
-          <div className="flex flex-col gap-1 md:col-span-2">
-            <label htmlFor="notes" className="text-sm">요청 사항</label>
-            <textarea id="notes" name="notes" rows={4} className="p-3 rounded border border-black/15 bg-transparent" placeholder="예) 배경 교체, 의상 정장 변경 등" />
-          </div>
-          <div className="md:col-span-2 flex flex-wrap items-center justify-center gap-3">
-            <div className="text-sm opacity-80">선택 상품 {selectedIds.length}개 · 액자: {FRAME_OPTIONS.find(f => f.id === selectedFrameId)?.name} / 합계 {total.toLocaleString()}원</div>
-            <button type="submit" className="h-10 px-5 rounded bg-foreground text-background text-sm font-medium">
-              신청하기
-            </button>
-          </div>
-        </form>
-      </section>
-
-      {/* 신청서 섹션은 상단 왼쪽 컬럼으로 이동했습니다 */}
-      {isSubmitModalOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center">
-          <div className="absolute inset-0 bg-black/50" onClick={() => setIsSubmitModalOpen(false)} />
-          <div className="relative z-10 w-[92%] max-w-md rounded-lg bg-white text-black p-6 shadow-xl border border-black/10">
-            <h3 className="text-lg font-semibold mb-2">신청이 완료되었습니다</h3>
-            <p className="text-sm leading-6 mb-4">
-              아침햇살 카카오채널에 복원하시려는 사진을 보내면 작업이 진행됩니다.
-            </p>
-            <div className="flex items-center justify-end gap-2">
-              <a
-                href="https://pf.kakao.com/_SLhjK"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="h-10 px-4 rounded bg-yellow-500 text-white text-sm flex items-center"
-              >
-                카카오채널 바로가기
-              </a>
-              <button
-                className="h-10 px-4 rounded border border-black/20 text-sm"
-                onClick={() => setIsSubmitModalOpen(false)}
-              >
-                닫기
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
     </div>
   );
 }
