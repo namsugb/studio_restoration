@@ -2,7 +2,7 @@
 
 import { Oleo_Script } from "next/font/google";
 import Image from "next/image";
-import { useMemo, useState, useEffect } from "react";
+import { useMemo, useState } from "react";
 import { submitAlimtalkToStudio } from "../utils/kakao";
 import ImageSlider from "../components/imageSlider";
 
