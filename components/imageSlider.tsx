@@ -51,7 +51,7 @@ export default function ImageSlider({ SLIDER_IMAGES }: ImageSliderProps) {
                     src={SLIDER_IMAGES[currentIndex]}
                     alt={`복원 작업 ${currentIndex + 1}`}
                     fill
-                    className="object-cover transition-all duration-500"
+                    className="object-contain transition-all duration-500"
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1000px"
                     priority={currentIndex === 0}
                 />
